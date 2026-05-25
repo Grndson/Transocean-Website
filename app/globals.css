@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+:root {
+  --font-syne: 'DM Sans', sans-serif;
+  --font-dm-sans: 'DM Sans', sans-serif;
+  --navy: #0a1628;
+  --navy-mid: #112240;
+  --navy-light: #1d3461;
+  --ocean: #1a6b8a;
+  --ocean-bright: #1e90b8;
+  --gold: #c8a84b;
+  --gold-light: #e8c96a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: #2c3e5a;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Syne', sans-serif;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
