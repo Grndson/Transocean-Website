@@ -94,19 +94,21 @@ export default function WhyUs() {
             {SITE.stats.map((s) => (
               <div
                 key={s.label}
-                className="p-10 text-center transition-all duration-300 hover:bg-[rgba(30,144,184,0.1)]"
+                className="p-5 sm:p-7 lg:p-10 text-center transition-all duration-300 hover:bg-[rgba(30,144,184,0.1)]"
                 style={{
                   background: "rgba(255,255,255,0.025)",
                   border: "1px solid rgba(255,255,255,0.05)",
                 }}
               >
                 <span
-                  className="block text-[52px] font-extrabold leading-none mb-2"
+                  className="block text-[32px] sm:text-[40px] lg:text-[52px] font-extrabold leading-none mb-2"
                   style={{ fontFamily: "var(--font-syne)", color: "#c8a84b" }}
                 >
                   {s.value}
                 </span>
-                <span className="text-[13px] text-white/45 tracking-wide">{s.label}</span>
+                <span className="text-[11px] sm:text-[12px] lg:text-[13px] text-white/45 tracking-wide">
+                  {s.label}
+                </span>
               </div>
             ))}
           </div>

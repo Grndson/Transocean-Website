@@ -10,8 +10,8 @@ export const SITE = {
   locationFull: "Mombasa, Kenya — East African Waters",
 
   // Social — replace # with real URLs
-  linkedin: "#",
-  facebook: "#",
+  linkedin: "https://www.linkedin.com/company/transocean-marine-surveyors-e.a-ltd/",
+  facebook: "https://www.facebook.com/TransoceanMarine/",
 
   stats: [
     { value: "15+", label: "Years Experience" },
@@ -23,7 +23,7 @@ export const SITE = {
   classificationSocieties: [
     { abbr: "LR", name: "Lloyd's Register" },
     { abbr: "BV", name: "Bureau Veritas" },
-    { abbr: "IRS", name: "Indian Register of Shipping" },
+    { abbr: "IRS", name: "International Register of Shipping" },
     { abbr: "ZMA", name: "ZMA Classification" },
   ],
 

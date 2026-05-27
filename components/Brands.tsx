@@ -42,6 +42,7 @@ export function BrandsBar() {
                 src={src!}
                 alt={brand}
                 fill
+                sizes="(max-width: 640px) 128px, (max-width: 768px) 176px, 208px"
                 style={{ objectFit: "contain" }}
               />
             </div>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Shield, CheckCircle2, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Shield, ArrowRight } from "lucide-react";
 import { SITE } from "@/lib/constants";
 import CtaBanner from "@/components/CtaBanner";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "About Us | Transocean Marine Surveyors Kenya",
@@ -20,43 +22,16 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      {/* Header */}
-      <section
-        className="pt-[120px] pb-20 relative overflow-hidden"
-        style={{ background: "#0a1628" }}
-      >
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="relative z-10 max-w-6xl mx-auto px-6">
-          <span
-            className="block text-[11px] font-bold tracking-[0.2em] uppercase text-[#1e90b8] mb-4"
-            style={{ fontFamily: "var(--font-syne)" }}
-          >
-            Our Story
-          </span>
-          <h1
-            className="text-[clamp(36px,5vw,56px)] font-extrabold text-white leading-tight mb-6 max-w-[640px]"
-            style={{ fontFamily: "var(--font-syne)" }}
-          >
-            Kenya&apos;s Maritime Electronics Specialists
-          </h1>
-          <p className="text-white/55 text-[18px] leading-relaxed max-w-[560px]">
-            Based in Mombasa, serving vessels across East African and
-            international waters with certified marine electronics expertise.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        page="about"
+        defaultLabel="Our Story"
+        defaultHeadline="Kenya's Maritime Electronics Specialists"
+        defaultSubtitle="Based in Mombasa, serving vessels across East African and international waters with certified marine electronics expertise."
+      />
 
       {/* Who we are */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          {/* Text */}
           <div>
             <span
               className="block text-[11px] font-bold tracking-[0.2em] uppercase text-[#1e90b8] mb-4"
@@ -97,42 +72,25 @@ export default function AboutPage() {
             </Link>
           </div>
 
-          {/* Visual card */}
+          {/* Image card */}
           <div className="relative">
-            <div
-              className="rounded-lg flex items-center justify-center relative overflow-hidden"
-              style={{
-                height: 420,
-                background: "linear-gradient(135deg, #112240 0%, #1d3461 50%, #1a6b8a 100%)",
-              }}
-            >
+            <div className="rounded-lg overflow-hidden relative" style={{ height: 420 }}>
+              <Image
+                src="/about/alex.png"
+                alt="Transocean Marine Surveyors — Established in Kenya"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
               <div
                 className="absolute inset-0"
                 style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-                  backgroundSize: "40px 40px",
+                  background: "linear-gradient(to top, rgba(10,22,40,0.7) 0%, rgba(10,22,40,0.2) 60%, transparent 100%)",
                 }}
               />
-              <div className="relative z-10 text-center">
-                <div
-                  className="text-[80px] font-extrabold leading-none mb-2"
-                  style={{ fontFamily: "var(--font-syne)", color: "rgba(255,255,255,0.1)" }}
-                >
-                  TMS
-                </div>
-                <div
-                  className="text-[13px] font-semibold tracking-[0.2em] uppercase"
-                  style={{ fontFamily: "var(--font-syne)", color: "rgba(255,255,255,0.35)" }}
-                >
-                  Established in Kenya
-                </div>
-              </div>
             </div>
-
-            {/* Badge */}
             <div
-              className="absolute -bottom-5 -right-5 bg-white rounded-lg p-5 flex items-center gap-4 shadow-xl border"
+              className="absolute -bottom-5 -right-5 bg-white rounded-lg p-5 flex items-center gap-4 shadow-xl"
               style={{ border: "1px solid #e8edf4" }}
             >
               <div
@@ -252,7 +210,7 @@ export default function AboutPage() {
                 style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.05)" }}
               >
                 <span
-                  className="block text-[52px] font-extrabold leading-none mb-2"
+                  className="block text-[clamp(32px,4vw,52px)] font-extrabold leading-none mb-2"
                   style={{ fontFamily: "var(--font-syne)", color: "#c8a84b" }}
                 >
                   {s.value}

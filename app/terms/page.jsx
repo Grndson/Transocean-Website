@@ -1,6 +1,4 @@
-// components/TermsOfUse.jsx
-// Drop into your Next.js project and import wherever needed.
-// Requires Tailwind CSS (already in most Next.js setups).
+import Link from "next/link";
 
 export default function TermsOfUse() {
   return (
@@ -8,6 +6,12 @@ export default function TermsOfUse() {
       {/* Hero */}
       <div className="bg-[#12263a] text-white px-6 py-16 md:py-24">
         <div className="max-w-3xl mx-auto">
+            <Link
+      href="/"
+      className="inline-flex items-center gap-2 text-[#7eb8d4] text-xs font-sans tracking-wide mb-6 hover:text-white transition-colors duration-200"
+    >
+      ← Back to Home
+    </Link>
           <p className="uppercase tracking-[0.25em] text-[#7eb8d4] text-xs font-sans mb-4">
             Legal · Transocean Marine Surveyors E.A. Ltd
           </p>

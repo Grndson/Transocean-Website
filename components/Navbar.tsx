@@ -32,11 +32,11 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/98 shadow-lg border-b border-slate-200"
-            : "bg-white/95 border-b border-slate-100"
-        }`}
+        className={`fixed top-[36px] left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/98 shadow-lg border-b border-slate-200"
+          : "bg-white/95 border-b border-slate-100"
+      }`}
         style={{ backdropFilter: "blur(16px)" }}
       >
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-[72px]">
@@ -124,7 +124,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="fixed inset-0 top-[72px] bg-white z-40 flex flex-col p-6 gap-2 md:hidden">
+        <div className="fixed inset-0 top-[108px] bg-white z-40 flex flex-col p-6 gap-2 md:hidden">
           {navLinks.map((l) => {
             const isActive = pathname === l.href;
 
@@ -157,13 +157,6 @@ export default function Navbar() {
           >
             Request a Quote
           </Link>
-
-          <a
-            href={SITE.phoneHref}
-            className="text-center text-slate-500 text-sm mt-3"
-          >
-            {SITE.phone}
-          </a>
         </div>
       )}
     </>

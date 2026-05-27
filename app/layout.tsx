@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import LayoutWrapper from "@/components/LayoutWrapper";
 
 export const metadata: Metadata = {
   title: "Transocean Marine Surveyors | Marine Electronics & GMDSS Specialists – Kenya",
@@ -16,7 +15,14 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://transoceansurveyors.com",
   },
+    icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+    shortcut: "/logo.png",
+  },
 };
+
+
 
 export default function RootLayout({
   children,
@@ -33,11 +39,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-      </body>
+      <body suppressHydrationWarning={true}>
+  <LayoutWrapper>{children}</LayoutWrapper>
+</body>
     </html>
   );
 }

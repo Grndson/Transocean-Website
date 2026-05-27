@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { services } from "@/lib/services";
 import CtaBanner from "@/components/CtaBanner";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Marine Electronics Services | Transocean Marine Surveyors Kenya",
@@ -21,38 +22,12 @@ const iconMap: Record<string, React.ElementType> = {
 export default function ServicesPage() {
   return (
     <>
-      {/* Page header */}
-      <section
-        className="pt-[120px] pb-20 relative overflow-hidden"
-        style={{ background: "#0a1628" }}
-      >
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="relative z-10 max-w-6xl mx-auto px-6">
-          <span
-            className="block text-[11px] font-bold tracking-[0.2em] uppercase text-[#1e90b8] mb-4"
-            style={{ fontFamily: "var(--font-syne)" }}
-          >
-            What We Offer
-          </span>
-          <h1
-            className="text-[clamp(36px,5vw,56px)] font-extrabold text-white leading-tight mb-6 max-w-[640px]"
-            style={{ fontFamily: "var(--font-syne)" }}
-          >
-            Marine Electronics &amp; Survey Services
-          </h1>
-          <p className="text-white/55 text-[18px] leading-relaxed max-w-[560px]">
-            Certified solutions for vessel compliance, communication, and
-            navigation — covering every system onboard, from GMDSS to AIS.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        page="services"
+        defaultLabel="What We Offer"
+        defaultHeadline="Marine Electronics & Survey Services"
+        defaultSubtitle="Certified solutions for vessel compliance, communication, and navigation — covering every system onboard, from GMDSS to AIS."
+      />
 
       {/* Services grid */}
       <section className="py-24 bg-white">

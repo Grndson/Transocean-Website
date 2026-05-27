@@ -1,24 +1,29 @@
-// components/PrivacyPolicy.jsx
-// Drop into your Next.js project and import wherever needed.
-// Requires Tailwind CSS (already in most Next.js setups).
+import Link from "next/link";
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-[#f5f3ef] text-[#1a1a1a] font-serif">
       {/* Hero */}
-      <div className="bg-[#0b2545] text-white px-6 py-16 md:py-24">
-        <div className="max-w-3xl mx-auto">
-          <p className="uppercase tracking-[0.25em] text-[#7eb8d4] text-xs font-sans mb-4">
-            Legal · Transocean Marine Surveyors E.A. Ltd
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
-            Privacy Policy
-          </h1>
-          <p className="text-[#a8c8dc] font-sans text-sm">
-            Effective Date: May 22, 2026
-          </p>
-        </div>
-      </div>
+<div className="bg-[#0b2545] text-white px-6 py-16 md:py-24">
+  <div className="max-w-3xl mx-auto">
+    {/* Back button */}
+    <Link
+      href="/"
+      className="inline-flex items-center gap-2 text-[#7eb8d4] text-xs font-sans tracking-wide mb-6 hover:text-white transition-colors duration-200"
+    >
+      ← Back to Home
+    </Link>
+    <p className="uppercase tracking-[0.25em] text-[#7eb8d4] text-xs font-sans mb-4">
+      Legal · Transocean Marine Surveyors E.A. Ltd
+    </p>
+    <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
+      Privacy Policy
+    </h1>
+    <p className="text-[#a8c8dc] font-sans text-sm">
+      Effective Date: May 22, 2026
+    </p>
+  </div>
+</div>
 
       {/* Content */}
       <div className="max-w-3xl mx-auto px-6 py-14 space-y-12">

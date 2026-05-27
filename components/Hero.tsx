@@ -1,16 +1,51 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SITE } from "@/lib/constants";
+import { getHero } from "@/lib/queries";
+import { urlFor } from "@/lib/sanity";
 
-export default function Hero() {
+export default async function Hero() {
+  // Fetch from Sanity — falls back gracefully if no content yet
+  const hero = await getHero().catch(() => null);
+
+  const headline = hero?.headline ?? "Certified Marine Electronics & GMDSS Experts";
+  const subtitle =
+    hero?.subtitle ??
+    "Keeping East Africa's vessels safe, compliant, and connected. From GMDSS surveys to AIS installation — certified solutions that meet IMO, SOLAS, and classification society standards.";
+  const ctaPrimaryText = hero?.ctaPrimaryText ?? "Request a Quote";
+  const ctaPrimaryLink = hero?.ctaPrimaryLink ?? "/contact";
+  const ctaSecondaryText = hero?.ctaSecondaryText ?? "View Our Services";
+  const ctaSecondaryLink = hero?.ctaSecondaryLink ?? "/services";
+  const overlayOpacity = (hero?.overlayOpacity ?? 55) / 100;
+  const bgImage = hero?.backgroundImage ? urlFor(hero.backgroundImage).width(1920).url() : null;
+
   return (
     <section
-      className="relative overflow-hidden pt-[88px] pb-16 sm:pb-20"
+      className="relative overflow-hidden pt-0 pb-16 sm:pb-20"
       style={{ background: "#0a1628" }}
     >
+      {/* Background image from Sanity (if uploaded) */}
+      {bgImage && (
+        <>
+          <Image
+            src={bgImage}
+            alt="Hero background"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Dark overlay so text stays readable */}
+          <div
+            className="absolute inset-0 z-[1]"
+            style={{ background: `rgba(10,22,40,${overlayOpacity})` }}
+          />
+        </>
+      )}
+
       {/* Background gradients */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none z-[2]"
         style={{
           background:
             "radial-gradient(ellipse 60% 50% at 70% 50%, rgba(26,107,138,0.22) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 15% 80%, rgba(200,168,75,0.07) 0%, transparent 60%)",
@@ -18,7 +53,7 @@ export default function Hero() {
       />
       {/* Grid lines */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none z-[2]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)",
@@ -36,35 +71,31 @@ export default function Hero() {
               fontSize: "clamp(36px, 5vw, 58px)",
             }}
           >
-            Certified Marine
-            <span className="block text-[#1e90b8]">Electronics &amp;</span>
-            <span style={{ color: "#c8a84b" }}>GMDSS Experts</span>
+            {headline}
           </h1>
 
           <p className="text-white/60 text-[17px] leading-relaxed max-w-[480px] mb-10">
-            Keeping East Africa&apos;s vessels safe, compliant, and connected.
-            From GMDSS surveys to AIS installation — certified solutions that
-            meet IMO, SOLAS, and classification society standards.
+            {subtitle}
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
             <Link
-              href="/contact"
+              href={ctaPrimaryLink}
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded font-bold text-[14px] tracking-wide text-white transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110"
               style={{
                 fontFamily: "var(--font-syne)",
                 background: "#1e90b8",
               }}
             >
-              Request a Quote
+              {ctaPrimaryText}
               <ArrowRight size={16} />
             </Link>
             <Link
-              href="/services"
+              href={ctaSecondaryLink}
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded font-bold text-[14px] tracking-wide text-white border border-white/30 transition-all duration-200 hover:border-white hover:bg-white/8"
               style={{ fontFamily: "var(--font-syne)" }}
             >
-              View Our Services
+              {ctaSecondaryText}
             </Link>
           </div>
 
@@ -93,7 +124,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — stat cards */}
+        {/* Right — stat cards (hardcoded — design element) */}
         <div className="hidden lg:block">
           <div className="relative max-w-[420px]">
             {/* Float badge */}

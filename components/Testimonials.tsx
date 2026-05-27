@@ -1,27 +1,72 @@
-import { Star } from "lucide-react";
+// components/Testimonials.tsx
 
-const testimonials = [
+import { Star } from "lucide-react";
+import { client } from "@/lib/sanity";
+
+interface Testimonial {
+  _id: string;
+  name: string;
+  role: string;
+  text: string;
+  rating: number;
+}
+
+// Fallback data — used if no testimonials in Sanity yet
+const fallbackTestimonials = [
   {
-    initials: "KM",
+    _id: "1",
     name: "Capt. K. Mwangi",
     role: "Fleet Manager, East Africa Shipping",
     text: "Transocean handled our vessel's GMDSS survey with exceptional professionalism. Their team was thorough, fast, and ensured we left port fully compliant with zero surprises during inspection.",
+    rating: 5,
   },
   {
-    initials: "JO",
+    _id: "2",
     name: "J. Odhiambo",
     role: "Port Operations, Mombasa",
     text: "We rely on Transocean for all our EPIRB programming and AIS installation work. Their engineers know these systems inside out, and the turnaround time is always impressive.",
+    rating: 5,
   },
   {
-    initials: "AN",
+    _id: "3",
     name: "A. Njoroge",
     role: "Owner, Coastal Fishing Ltd.",
     text: "The NEMO-VMS installation they did on our fishing fleet was seamless. The team was knowledgeable about Kenyan fisheries compliance and got us sorted quickly.",
+    rating: 5,
   },
 ];
 
-export default function Testimonials() {
+async function getTestimonials() {
+  try {
+    const results = await client.fetch(
+      `*[_type == "testimonial" && featured == true] | order(order asc){
+        _id,
+        name,
+        role,
+        text,
+        rating
+      }`
+    );
+    
+    return results?.length > 0 ? results : fallbackTestimonials;
+  } catch {
+    return fallbackTestimonials;
+  }
+}
+
+function getInitials(name: string) {
+  return name
+    .replace(/^(Capt\.|Dr\.|Mr\.|Mrs\.|Ms\.)\s*/i, "")
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((n: string) => n[0].toUpperCase())
+    .join("");
+}
+
+export default async function Testimonials() {
+  const testimonials = await getTestimonials();
+
   return (
     <section className="py-24" style={{ background: "#0a1628" }}>
       <div className="max-w-6xl mx-auto px-6">
@@ -45,9 +90,9 @@ export default function Testimonials() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
+          {testimonials.map((t: Testimonial) => (
             <div
-              key={t.name}
+              key={t._id}
               className="rounded-lg p-8 flex flex-col transition-all duration-300 hover:border-[#1e90b8]/30"
               style={{
                 background: "rgba(255,255,255,0.04)",
@@ -56,7 +101,7 @@ export default function Testimonials() {
             >
               {/* Stars */}
               <div className="flex gap-1 mb-6">
-                {[...Array(5)].map((_, i) => (
+                {[...Array(t.rating ?? 5)].map((_, i) => (
                   <Star key={i} size={14} fill="#c8a84b" color="#c8a84b" />
                 ))}
               </div>
@@ -74,7 +119,7 @@ export default function Testimonials() {
                     fontFamily: "var(--font-syne)",
                   }}
                 >
-                  {t.initials}
+                  {getInitials(t.name)}
                 </div>
                 <div>
                   <strong
