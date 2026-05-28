@@ -1,10 +1,10 @@
 "use client";
-
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 import FloatingButtons from "@/components/FloatingButtons";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function LayoutWrapper({
   children,
@@ -27,6 +27,7 @@ export default function LayoutWrapper({
       <main>{children}</main>
       <Footer />
       <FloatingButtons />
+      <ChatWidget />
     </>
   );
 }

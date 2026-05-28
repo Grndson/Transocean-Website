@@ -1,5 +1,7 @@
 import { client } from "./sanity";
 
+const NO_CACHE = { next: { revalidate: 0 } };
+
 // ─── HERO ─────────────────────────────────────────────────────────────────────
 
 export async function getHero() {
@@ -13,22 +15,23 @@ export async function getHero() {
       ctaSecondaryLink,
       backgroundImage,
       overlayOpacity
-    }`
+    }`,
+    {},
+    NO_CACHE
   );
 }
 
 // ─── SERVICE IMAGES ───────────────────────────────────────────────────────────
-// Services text/data stays in lib/services.ts
-// Only images are managed in Sanity — keyed by slug to match services.ts
 
 export async function getServiceImages(): Promise<Record<string, string>> {
   const results = await client.fetch(
     `*[_type == "service"]{
       "slug": slug.current,
       "imageUrl": image.asset->url
-    }`
+    }`,
+    {},
+    NO_CACHE
   );
-  // Returns { "gmdss-survey": "https://cdn.sanity.io/...", ... }
   return Object.fromEntries(
     results
       .filter((r: { slug: string; imageUrl: string }) => r.slug && r.imageUrl)
@@ -41,7 +44,8 @@ export async function getServiceImageBySlug(slug: string): Promise<string | null
     `*[_type == "service" && slug.current == $slug][0]{
       "imageUrl": image.asset->url
     }`,
-    { slug }
+    { slug },
+    NO_CACHE
   );
   return result?.imageUrl ?? null;
 }
@@ -59,7 +63,9 @@ export async function getAllPosts() {
       author,
       excerpt,
       coverImage
-    }`
+    }`,
+    {},
+    NO_CACHE
   );
 }
 
@@ -73,7 +79,9 @@ export async function getLatestPosts(count: number = 3) {
       category,
       excerpt,
       coverImage
-    }`
+    }`,
+    {},
+    NO_CACHE
   );
 }
 
@@ -89,7 +97,8 @@ export async function getPostsByCategory(category: string) {
       excerpt,
       coverImage
     }`,
-    { category }
+    { category },
+    NO_CACHE
   );
 }
 
@@ -108,10 +117,15 @@ export async function getPostBySlug(slug: string) {
       seoTitle,
       seoDescription
     }`,
-    { slug }
+    { slug },
+    NO_CACHE
   );
 }
 
 export async function getAllPostSlugs() {
-  return client.fetch(`*[_type == "blogPost"]{ "slug": slug.current }`);
+  return client.fetch(
+    `*[_type == "blogPost"]{ "slug": slug.current }`,
+    {},
+    NO_CACHE
+  );
 }

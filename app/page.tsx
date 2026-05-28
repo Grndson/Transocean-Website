@@ -5,6 +5,8 @@ import WhyUs from "@/components/WhyUs";
 import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 
+export const revalidate = 0;
+
 export default function HomePage() {
   return (
     <>
