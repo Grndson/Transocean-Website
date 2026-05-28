@@ -8,6 +8,8 @@ import { services } from "@/lib/services";
 import CtaBanner from "@/components/CtaBanner";
 import PageHero from "@/components/PageHero";
 
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: "Marine Electronics Services | Transocean Marine Surveyors Kenya",
   description:
