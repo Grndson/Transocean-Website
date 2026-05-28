@@ -1,5 +1,5 @@
 {
-  "createdAt": "2026-05-28T10:57:52.172Z",
+  "createdAt": "2026-05-28T22:05:29.149Z",
   "studioVersion": "5.26.0",
   "version": 3,
   "workspaces": [
@@ -13,7 +13,7 @@
       },
       "name": "default",
       "projectId": "ofoc2r64",
-      "schema": "05f96137.create-schema.json",
+      "schema": "be09c30b.create-schema.json",
       "title": "Transocean Marine Surveyors",
       "tools": "a1fd46b5.create-tools.json"
     }

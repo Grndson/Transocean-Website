@@ -205,7 +205,9 @@ export default function Footer() {
                 <div className="w-9 h-9 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center flex-shrink-0">
                   <MapPin size={15} className="text-[#1e90b8] flex-shrink-0" />
                 </div>
-                <span className="text-sm leading-relaxed">{SITE.locationFull}</span>
+                <span className="text-sm leading-relaxed whitespace-pre-line">
+                  {SITE.locationFull}
+                </span>
               </div>
             </div>
           </div>

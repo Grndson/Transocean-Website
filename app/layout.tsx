@@ -15,14 +15,12 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://transoceansurveyors.com",
   },
-    icons: {
+  icons: {
     icon: "/logo.png",
     apple: "/logo.png",
     shortcut: "/logo.png",
   },
 };
-
-
 
 export default function RootLayout({
   children,
@@ -30,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -40,8 +38,8 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning={true}>
-  <LayoutWrapper>{children}</LayoutWrapper>
-</body>
+        <LayoutWrapper>{children}</LayoutWrapper>
+      </body>
     </html>
   );
 }

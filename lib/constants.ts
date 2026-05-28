@@ -7,7 +7,9 @@ export const SITE = {
   emailHref: "mailto:info@transoceansurveyors.com",
   whatsapp: "https://wa.me/254738036617", 
   location: "Mombasa, Kenya",
-  locationFull: "Mombasa, Kenya — East African Waters",
+  locationFull: `Ruman Plaza, Suite 203
+St. Bernard Street, Ganjoni
+Mombasa, Kenya`,
 
   // Social — replace # with real URLs
   linkedin: "https://www.linkedin.com/company/transocean-marine-surveyors-e.a-ltd/",

@@ -178,10 +178,26 @@
             ]
           }
         ],
-        "description": "e.g. 'GMDSS Equipment Servicing'",
+        "description": "e.g. 'GMDSS Radio Survey'",
         "name": "title",
         "type": "string",
         "title": "Service Title"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Shorter version shown on cards (e.g. 'GMDSS Maintenance')",
+        "name": "shortTitle",
+        "type": "string"
       },
       {
         "options": {
@@ -202,12 +218,11 @@
             ]
           }
         ],
-        "description": "Auto-generated URL for this service page (e.g. /services/gmdss-equipment-servicing)",
+        "description": "Auto-generated URL (e.g. /services/gmdss-maintenance)",
         "name": "slug",
         "type": "slug"
       },
       {
-        "rows": 3,
         "validation": [
           {
             "level": "error",
@@ -218,100 +233,58 @@
               },
               {
                 "flag": "max",
-                "constraint": 200
+                "constraint": 150
               }
             ]
           }
         ],
-        "description": "Brief summary shown on service cards (keep under 150 characters)",
-        "name": "shortDescription",
-        "type": "text"
+        "description": "One-line summary shown on service cards (under 150 characters)",
+        "name": "tagline",
+        "type": "string"
       },
       {
-        "description": "Detailed content shown on the individual service page",
-        "of": [
+        "rows": 5,
+        "validation": [
           {
-            "lists": [
+            "level": "error",
+            "rules": [
               {
-                "value": "bullet",
-                "title": "Bulleted list"
-              },
-              {
-                "value": "number",
-                "title": "Numbered list"
+                "flag": "presence",
+                "constraint": "required"
               }
-            ],
-            "marks": {
-              "annotations": [
-                {
-                  "i18nTitleKey": "inputs.portable-text.annotation.link",
-                  "options": {
-                    "modal": {
-                      "type": "popover"
-                    }
-                  },
-                  "fields": [
-                    {
-                      "validation": [
-                        {
-                          "level": "error",
-                          "rules": [
-                            {
-                              "flag": "uri",
-                              "constraint": {
-                                "options": {
-                                  "scheme": [
-                                    "/^http$/",
-                                    "/^https$/",
-                                    "/^tel$/",
-                                    "/^mailto$/"
-                                  ],
-                                  "allowRelative": true,
-                                  "relativeOnly": false,
-                                  "allowCredentials": false
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      ],
-                      "description": "A valid web, email, phone, or relative link.",
-                      "name": "href",
-                      "type": "url",
-                      "title": "Link"
-                    }
-                  ],
-                  "name": "link",
-                  "type": "object"
-                }
-              ],
-              "decorators": [
-                {
-                  "value": "strong",
-                  "title": "Bold"
-                },
-                {
-                  "value": "em",
-                  "title": "Italic"
-                }
-              ]
-            },
-            "of": [],
-            "styles": [
-              {
-                "value": "normal",
-                "title": "Normal"
-              },
-              {
-                "value": "h3",
-                "title": "Heading"
-              }
-            ],
-            "type": "block"
+            ]
           }
         ],
-        "name": "fullDescription",
-        "type": "array"
+        "description": "Full paragraph shown on the service detail page under 'Service Overview'",
+        "name": "description",
+        "type": "text",
+        "title": "Service Overview"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "description": "Checklist items shown on the service detail page",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "details",
+        "type": "array",
+        "title": "What's Included"
       },
       {
         "options": {
@@ -328,26 +301,62 @@
             ]
           }
         ],
-        "description": "Image shown on the service card and detail page",
+        "description": "Image shown on the service card and detail page hero",
         "name": "image",
         "type": "image",
         "title": "Service Image"
       },
       {
-        "description": "Lucide icon name to show alongside the service (e.g. 'radio', 'anchor', 'radar', 'wrench', 'satellite')",
+        "options": {
+          "list": [
+            {
+              "title": "Radio",
+              "value": "Radio"
+            },
+            {
+              "title": "Wrench",
+              "value": "Wrench"
+            },
+            {
+              "title": "Navigation",
+              "value": "Navigation"
+            },
+            {
+              "title": "Cpu",
+              "value": "Cpu"
+            },
+            {
+              "title": "Package",
+              "value": "Package"
+            },
+            {
+              "title": "Anchor",
+              "value": "Anchor"
+            },
+            {
+              "title": "Signal",
+              "value": "Signal"
+            },
+            {
+              "title": "Compass",
+              "value": "Compass"
+            }
+          ],
+          "layout": "radio"
+        },
+        "description": "Icon shown alongside the service",
         "name": "icon",
-        "type": "string",
-        "title": "Icon Name"
+        "type": "string"
       },
       {
         "initialValue": 1,
-        "description": "Controls the order services appear on the page (1 = first)",
+        "description": "Controls the order services appear (1 = first)",
         "name": "order",
         "type": "number",
         "title": "Display Order"
       },
       {
-        "initialValue": false,
+        "initialValue": true,
         "description": "Show this service prominently on the homepage",
         "name": "featured",
         "type": "boolean",

@@ -118,8 +118,9 @@ export default async function ServicesPage() {
                       <p className="text-[14px] text-[#6b7e9a] leading-relaxed flex-1 mb-5">
                         {service.tagline}
                       </p>
+                      {/* ✦ Always visible — arrow slides on hover */}
                       <div
-                        className="inline-flex items-center gap-2 text-[13px] font-bold tracking-wide text-[#1e90b8]"
+                        className="inline-flex items-center gap-2 text-[13px] font-bold tracking-wide text-[#1e90b8] group-hover:gap-3 transition-all duration-300"
                         style={{ fontFamily: "var(--font-syne)" }}
                       >
                         View Service <ArrowRight size={14} />
@@ -160,8 +161,9 @@ export default async function ServicesPage() {
                     <p className="text-[14px] text-[#6b7e9a] leading-relaxed flex-1 mb-6">
                       {service.tagline}
                     </p>
+                    {/* ✦ Always visible */}
                     <div
-                      className="inline-flex items-center gap-2 text-[13px] font-bold tracking-wide text-[#1e90b8]"
+                      className="inline-flex items-center gap-2 text-[13px] font-bold tracking-wide text-[#1e90b8] group-hover:gap-3 transition-all duration-300"
                       style={{ fontFamily: "var(--font-syne)" }}
                     >
                       View Service <ArrowRight size={14} />

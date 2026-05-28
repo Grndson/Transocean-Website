@@ -133,8 +133,9 @@ export default async function ServicesOverview() {
                     <p className="text-[14px] text-[#6b7e9a] leading-relaxed flex-1">
                       {service.tagline}
                     </p>
+                    {/* ✦ Always visible — removed opacity-0 / group-hover:opacity-100 */}
                     <div
-                      className="inline-flex items-center gap-1.5 mt-4 text-[12px] font-bold tracking-wide text-[#1e90b8] opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300"
+                      className="inline-flex items-center gap-1.5 mt-4 text-[12px] font-bold tracking-wide text-[#1e90b8] group-hover:gap-2.5 transition-all duration-300"
                       style={{ fontFamily: "var(--font-syne)" }}
                     >
                       Learn more <ArrowRight size={12} />
@@ -177,8 +178,9 @@ export default async function ServicesOverview() {
                   <p className="text-[14px] text-[#6b7e9a] group-hover:text-white/55 leading-relaxed transition-colors duration-300 flex-1">
                     {service.tagline}
                   </p>
+                  {/* ✦ Always visible */}
                   <div
-                    className="inline-flex items-center gap-1.5 mt-4 text-[12px] font-bold tracking-wide text-[#1e90b8] group-hover:text-[#c8a84b] opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300"
+                    className="inline-flex items-center gap-1.5 mt-4 text-[12px] font-bold tracking-wide text-[#1e90b8] group-hover:text-[#c8a84b] group-hover:gap-2.5 transition-all duration-300"
                     style={{ fontFamily: "var(--font-syne)" }}
                   >
                     Learn more <ArrowRight size={12} />
