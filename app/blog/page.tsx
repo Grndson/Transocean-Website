@@ -17,6 +17,8 @@ interface Post {
   coverImage?: object;
 }
 
+export const revalidate = 0; 
+
 export const metadata: Metadata = {
   title: "Marine Electronics Blog | Transocean Marine Surveyors Kenya",
   description:

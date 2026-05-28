@@ -1,0 +1,21 @@
+{
+  "createdAt": "2026-05-27T21:58:46.740Z",
+  "studioVersion": "5.26.0",
+  "version": 3,
+  "workspaces": [
+    {
+      "basePath": "/studio",
+      "dataset": "production",
+      "icon": "<img src=\"/logo.png\" alt=\"Transocean Marine Surveyors\" style=\"height:28px;width:auto;object-fit:contain\">",
+      "mediaLibrary": {
+        "enabled": false,
+        "__internal": {}
+      },
+      "name": "default",
+      "projectId": "ofoc2r64",
+      "schema": "05f96137.create-schema.json",
+      "title": "Transocean Marine Surveyors",
+      "tools": "a1fd46b5.create-tools.json"
+    }
+  ]
+}
