@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { client } from "@/lib/sanity";
-import { urlFor } from "@/lib/sanity";
+import { client, urlFor } from "@/lib/sanity";
 
 interface PageHeroProps {
   page: "services" | "about" | "blog" | "contact";
@@ -19,7 +18,8 @@ async function getPageHero(page: string) {
         backgroundImage,
         overlayOpacity
       }`,
-      { page }
+      { page },
+      { next: { revalidate: 0 } }
     );
   } catch {
     return null;
