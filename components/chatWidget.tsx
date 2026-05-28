@@ -119,7 +119,7 @@ export default function ChatWidget() {
   const [showQuickReplies, setShowQuickReplies] = useState(true);
   const [hasNewMessage, setHasNewMessage] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -139,14 +139,12 @@ export default function ChatWidget() {
       setTimeout(() => inputRef.current?.focus(), 100);
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setHasNewMessage(false);
-      setShowTooltip(false); // hide tooltip once opened
     }
   }, [open]);
 
-  // Auto-hide tooltip after 5 seconds
   useEffect(() => {
-    const timer = setTimeout(() => setShowTooltip(false), 5000);
-    return () => clearTimeout(timer);
+    const timer = window.setTimeout(() => setShowWelcome(true), 2000);
+    return () => window.clearTimeout(timer);
   }, []);
 
   const startNewConversation = useCallback(() => {
@@ -589,45 +587,39 @@ export default function ChatWidget() {
         </div>
       )}
 
-      {/* ── Tooltip hint (auto-hides after 5s) ───────────────────── */}
-      {!open && showTooltip && (
-        <div
-          style={{
-            position: "fixed",
-            bottom: "94px",
-            right: "24px",
-            zIndex: 9998,
-            animation: "chatSlideUp 0.3s ease",
-          }}
-        >
-          <div
-            style={{
-              background: BRAND_DARK,
-              color: "#fff",
-              fontSize: "12px",
-              fontWeight: 600,
-              padding: "8px 14px",
-              borderRadius: "10px",
-              whiteSpace: "nowrap",
-              boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
-              fontFamily: "var(--font-syne, sans-serif)",
-            }}
-          >
-            💬 Ask our AI Assistant
-            {/* Arrow pointing down */}
-            <span
-              style={{
-                position: "absolute",
-                bottom: -6,
-                right: 22,
-                width: 0,
-                height: 0,
-                borderLeft: "6px solid transparent",
-                borderRight: "6px solid transparent",
-                borderTop: `6px solid ${BRAND_DARK}`,
-              }}
-            />
+      {/* ── Welcome prompt ───────────────────────────────────── */}
+      {!open && showWelcome && (
+        <div className="fixed bottom-23 right-4 z-9998 w-[min(92vw,320px)] animate-[chatSlideUp_0.25s_ease]">
+          <div className="rounded-2xl border border-white/10 bg-[#07111f] p-3 text-white shadow-[0_16px_40px_rgba(0,0,0,0.30)]">
+            <div className="flex items-start gap-3">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/6 p-1.5 shadow-inner shadow-black/20">
+                <Image
+                  src="/logo.png"
+                  alt="Transocean logo"
+                  width={32}
+                  height={32}
+                  className="rounded-xl object-contain"
+                />
+              </div>
+
+              <div className="min-w-0 flex-1 pr-1">
+                <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#1e90b8]">AI assistant</p>
+                <p className="mt-1 text-[13px] font-semibold text-white">Need help with marine services?</p>
+                <p className="text-[12px] text-slate-200/80">Chat with our AI assistant.</p>
+              </div>
+
+              <button
+                type="button"
+                aria-label="Dismiss welcome prompt"
+                onClick={() => setShowWelcome(false)}
+                className="rounded-full border border-white/10 bg-white/5 p-1 text-slate-200 transition hover:bg-white/10 hover:text-white"
+              >
+                ×
+              </button>
+            </div>
           </div>
+
+          <div className="absolute -bottom-2 right-5 h-0 w-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-[#07111f]" />
         </div>
       )}
 

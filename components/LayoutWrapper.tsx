@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 import FloatingButtons from "@/components/FloatingButtons";
-import ChatWidget from "@/components/ChatWidget";
+import ChatWidget from "@/components/chatWidget";
 
 export default function LayoutWrapper({
   children,
