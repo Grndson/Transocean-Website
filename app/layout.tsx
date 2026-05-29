@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Transocean Marine Surveyors | Marine Electronics & GMDSS Specialists – Kenya",
@@ -39,6 +40,7 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning={true}>
         <LayoutWrapper>{children}</LayoutWrapper>
+        <GoogleAnalytics gaId="G-LPH0FCCL0G" />
       </body>
     </html>
   );
