@@ -9,7 +9,7 @@ export default function TopBar() {
         background: "#0a1628",
         borderBottom: "1px solid rgba(255,255,255,0.07)",
         zIndex: 60,
-        height: 36,
+        height: 44,
         display: "flex",
         alignItems: "center",
       }}
@@ -30,7 +30,7 @@ export default function TopBar() {
 
         {/* Desktop message */}
         <p
-          className="hidden sm:block text-[12px] text-white/70 tracking-wide"
+          className="hidden sm:block text-[14px] text-white/75 tracking-wide"
           style={{ fontFamily: "var(--font-syne)" }}
         >
           Need Immediate Marine Support?
@@ -49,9 +49,9 @@ export default function TopBar() {
             aria-label="Call us"
             style={{ WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
           >
-            <Phone size={11} className="text-[#1e90b8] flex-shrink-0" strokeWidth={2.5} />
+            <Phone size={14} className="text-[#1e90b8] flex-shrink-0" strokeWidth={2.5} />
             <span
-              className="text-[10px] sm:text-[12px] font-semibold text-white group-hover:text-[#1e90b8] transition-colors duration-200"
+              className="text-[12px] sm:text-[14px] font-semibold text-white group-hover:text-[#1e90b8] transition-colors duration-200"
               style={{ fontFamily: "var(--font-syne)" }}
             >
               <span className="sm:hidden">Call</span>
@@ -59,7 +59,7 @@ export default function TopBar() {
             </span>
           </a>
 
-          <span className="text-white/20 text-[10px]">/</span>
+          <span className="text-white/20 text-[12px]">/</span>
 
           {/* WhatsApp */}
           <a
@@ -70,9 +70,9 @@ export default function TopBar() {
             aria-label="WhatsApp us"
             style={{ WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
           >
-            <MessageCircle size={11} className="text-[#25D366] flex-shrink-0" strokeWidth={2.5} />
+            <MessageCircle size={14} className="text-[#25D366] flex-shrink-0" strokeWidth={2.5} />
             <span
-              className="text-[10px] sm:text-[12px] font-semibold text-white group-hover:text-[#25D366] transition-colors duration-200"
+              className="text-[12px] sm:text-[14px] font-semibold text-white group-hover:text-[#25D366] transition-colors duration-200"
               style={{ fontFamily: "var(--font-syne)" }}
             >
               <span className="sm:hidden">WhatsApp</span>
@@ -80,7 +80,7 @@ export default function TopBar() {
             </span>
           </a>
 
-          <span className="text-white/20 text-[10px]">/</span>
+          <span className="text-white/20 text-[12px]">/</span>
 
           {/* Email */}
           <a
@@ -89,9 +89,9 @@ export default function TopBar() {
             aria-label="Email us"
             style={{ WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
           >
-            <Mail size={11} className="text-[#c8a84b] flex-shrink-0" strokeWidth={2.5} />
+            <Mail size={14} className="text-[#c8a84b] flex-shrink-0" strokeWidth={2.5} />
             <span
-              className="text-[10px] sm:text-[12px] font-semibold text-white group-hover:text-[#c8a84b] transition-colors duration-200"
+              className="text-[12px] sm:text-[14px] font-semibold text-white group-hover:text-[#c8a84b] transition-colors duration-200"
               style={{ fontFamily: "var(--font-syne)" }}
             >
               <span className="sm:hidden">Email</span>

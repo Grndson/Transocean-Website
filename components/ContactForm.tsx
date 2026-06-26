@@ -1,20 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
 import { SITE } from "@/lib/constants";
 import { services } from "@/lib/services";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setSubmitted(true);
-    setLoading(false);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      vessel: formData.get("vessel"),
+      service: formData.get("service"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -52,6 +78,7 @@ export default function ContactForm() {
                     </label>
                     <input
                       type="text"
+                      name="firstName"
                       required
                       placeholder="John"
                       className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10"
@@ -67,6 +94,7 @@ export default function ContactForm() {
                     </label>
                     <input
                       type="text"
+                      name="lastName"
                       required
                       placeholder="Doe"
                       className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10"
@@ -84,6 +112,7 @@ export default function ContactForm() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required
                     placeholder="john@company.com"
                     className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10"
@@ -100,6 +129,7 @@ export default function ContactForm() {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="+254 700 000 000"
                     className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10"
                     style={{ border: "1px solid #e8edf4", background: "#f4f6f9", color: "#2c3e5a" }}
@@ -115,6 +145,7 @@ export default function ContactForm() {
                   </label>
                   <input
                     type="text"
+                    name="vessel"
                     placeholder="MV Example"
                     className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10"
                     style={{ border: "1px solid #e8edf4", background: "#f4f6f9", color: "#2c3e5a" }}
@@ -129,14 +160,15 @@ export default function ContactForm() {
                     Service Required
                   </label>
                   <select
+                    name="service"
                     className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10"
                     style={{ border: "1px solid #e8edf4", background: "#f4f6f9", color: "#2c3e5a" }}
                   >
                     <option value="">Select a service...</option>
                     {services.map((s) => (
-                      <option key={s.slug} value={s.slug}>{s.shortTitle}</option>
+                      <option key={s.slug} value={s.shortTitle}>{s.shortTitle}</option>
                     ))}
-                    <option value="general">General Enquiry</option>
+                    <option value="General Enquiry">General Enquiry</option>
                   </select>
                 </div>
 
@@ -148,6 +180,7 @@ export default function ContactForm() {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     rows={5}
                     placeholder="Tell us about your vessel and requirements..."
                     className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10 resize-y"
@@ -158,6 +191,13 @@ export default function ContactForm() {
                 <p className="text-[12px] text-[#8a9ab5]">
                   We typically respond within 24 hours on business days.
                 </p>
+
+                {error && (
+                  <div className="flex items-center gap-2 text-[13px] text-red-600">
+                    <AlertCircle size={15} />
+                    {error}
+                  </div>
+                )}
 
                 <button
                   type="submit"

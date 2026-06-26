@@ -162,7 +162,7 @@ export default async function Hero() {
             {/* Mini stats grid */}
             <div className="grid grid-cols-2 gap-3">
               {[
-                { val: "500+", label: "Vessels Surveyed" },
+                { val: "100+", label: "Vessels Surveyed" },
                 { val: "3", label: "Class Societies" },
                 { val: "9", label: "Core Services" },
                 { val: "100%", label: "IMO Compliance" },

@@ -37,7 +37,7 @@ export default function Navbar() {
       <nav
         style={{
           position: "fixed",
-          top: 36, // exactly below the 36px TopBar
+          top: 44, // exactly below the 44px TopBar
           left: 0,
           right: 0,
           zIndex: 55, // below TopBar (60) but above mobile menu (50)
@@ -49,7 +49,7 @@ export default function Navbar() {
           borderBottom: scrolled ? "1px solid #e2e8f0" : "1px solid #f1f5f9",
         }}
       >
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between" style={{ height: 72 }}>
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between" style={{ height: 80 }}>
 
           {/* Logo */}
           <Link
@@ -60,19 +60,19 @@ export default function Navbar() {
             <Image
               src="/logo.png"
               alt="Transocean logo"
-              width={40}
-              height={40}
+              width={45}
+              height={45}
               className="rounded flex-shrink-0"
-              style={{ width: "auto", height: 40 }}
+              style={{ width: "auto", height: 45 }}
             />
             <div className="flex flex-col leading-tight">
               <span
-                className="text-[#000080] text-[15px] font-bold tracking-wide"
+                className="text-[#000080] text-[18px] font-bold tracking-wide"
                 style={{ fontFamily: "var(--font-syne)" }}
               >
                 Transocean Marine
               </span>
-              <span className="text-[#8a9ab5] text-[11px] tracking-widest">
+              <span className="text-[#8a9ab5] text-[14px] tracking-widest">
                 Surveyors E.A. Ltd
               </span>
             </div>
@@ -86,7 +86,7 @@ export default function Navbar() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className={`group relative pb-1 text-[13px] font-semibold tracking-wide transition-all duration-300 ${
+                    className={`group relative pb-1 text-[16px] font-semibold tracking-wide transition-all duration-300 ${
                       isActive ? "text-[#000080]" : "text-slate-700 hover:text-[#000080]"
                     }`}
                     style={{ fontFamily: "var(--font-syne)" }}
@@ -107,7 +107,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="/contact"
-              className="px-5 py-2.5 rounded text-[13px] font-bold tracking-wide transition-all duration-200 hover:brightness-110 hover:-translate-y-0.5"
+              className="px-5 py-2.5 rounded text-[16px] font-bold tracking-wide transition-all duration-200 hover:brightness-110 hover:-translate-y-0.5"
               style={{
                 fontFamily: "var(--font-syne)",
                 background: "#000080",
@@ -148,7 +148,7 @@ export default function Navbar() {
         className="md:hidden"
         style={{
           position: "fixed",
-          top: 108, // 36px TopBar + 72px Navbar
+          top: 124, // 44px TopBar + 80px Navbar
           left: 0,
           right: 0,
           bottom: 0,
@@ -199,7 +199,7 @@ export default function Navbar() {
             WebkitTapHighlightColor: "transparent",
             touchAction: "manipulation",
           }}
-          className="mt-6 px-6 py-4 rounded text-center font-bold text-[15px]"
+          className="mt-6 px-6 py-4 rounded text-center font-bold text-[16px]"
         >
           Request a Quote
         </Link>

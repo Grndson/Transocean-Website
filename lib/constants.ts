@@ -17,7 +17,7 @@ Mombasa, Kenya`,
 
   stats: [
     { value: "15+", label: "Years Experience" },
-    { value: "500+", label: "Vessels Surveyed" },
+    { value: "100+", label: "Vessels Surveyed" },
     { value: "3", label: "Class Societies" },
     { value: "100%", label: "SOLAS Compliant" },
   ],
@@ -29,5 +29,5 @@ Mombasa, Kenya`,
     { abbr: "ZMA", name: "ZMA Classification" },
   ],
 
-  brands: ["ICOM", "Jotron", "Samyung", "Koden", "Martek", "McMurdo"],
+  brands: ["ICOM", "Jotron", "Samyung", "Koden", "Martek", "McMurdo", "ACR"],
 };

@@ -50,13 +50,21 @@ export default function Footer() {
 
   return (
     <footer
-      style={{ background: "#060f1e" }}
+      style={{
+        backgroundImage: "url('/footer.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
       className="relative overflow-hidden pt-20 pb-8"
     >
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+      
       {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#1e90b8]/5 blur-[160px] rounded-full" />
-        <div className="absolute bottom-0 left-1/4 w-[300px] h-[300px] bg-[#1e90b8]/3 blur-[120px] rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#1e90b8]/3 blur-[160px] rounded-full" />
+        <div className="absolute bottom-0 left-1/4 w-[300px] h-[300px] bg-[#1e90b8]/4 blur-[120px] rounded-full" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,22 +77,24 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="Transocean logo"
-                width={38}
-                height={38}
+                width={45}
+                height={45}
                 className="rounded-md flex-shrink-0"
               />
-              <div>
-                <h3
-                  className="text-white text-[15px] font-bold leading-tight"
-                  style={{ fontFamily: "var(--font-syne)" }}
-                >
-                  Transocean Marine
-                </h3>
-                <p className="text-white/40 text-[12px]">Surveyors E.A. Ltd</p>
-              </div>
+             <div className="flex flex-col leading-tight">
+              <span
+                className="text-[#000080] text-[18px] font-bold tracking-wide"
+                style={{ fontFamily: "var(--font-syne)" }}
+              >
+                Transocean Marine
+              </span>
+              <span className="text-[#8a9ab5] text-[14px] tracking-widest">
+                Surveyors E.A. Ltd
+              </span>
+            </div>
             </div>
 
-            <p className="text-white/45 text-sm leading-relaxed max-w-[320px]">
+            <p className="text-white/70 text-sm leading-relaxed max-w-[320px]">
               Kenya&apos;s trusted marine electronics and GMDSS specialists,
               delivering certified marine communication, navigation, and vessel
               compliance solutions.
@@ -127,7 +137,7 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4
-              className="text-white/30 text-[11px] font-bold tracking-[0.18em] uppercase mb-5"
+              className="text-white/70 text-[11px] font-bold tracking-[0.18em] uppercase mb-5"
               style={{ fontFamily: "var(--font-syne)" }}
             >
               Services
@@ -137,7 +147,7 @@ export default function Footer() {
                 <li key={s.slug}>
                   <Link
                     href={`/services/${s.slug}`}
-                    className="text-white/50 hover:text-white text-[14px] transition-colors duration-200 hover:translate-x-0.5 inline-block"
+                    className="text-white/75 hover:text-white text-[14px] transition-colors duration-200 hover:translate-x-0.5 inline-block"
                   >
                     {s.shortTitle}
                   </Link>
@@ -149,7 +159,7 @@ export default function Footer() {
           {/* Company */}
           <div>
             <h4
-              className="text-white/30 text-[11px] font-bold tracking-[0.18em] uppercase mb-5"
+              className="text-white/70 text-[11px] font-bold tracking-[0.18em] uppercase mb-5"
               style={{ fontFamily: "var(--font-syne)" }}
             >
               Company
@@ -159,7 +169,7 @@ export default function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-white/50 hover:text-white text-[14px] transition-colors duration-200 hover:translate-x-0.5 inline-block"
+                    className="text-white/75 hover:text-white text-[14px] transition-colors duration-200 hover:translate-x-0.5 inline-block"
                   >
                     {l.label}
                   </Link>
@@ -171,7 +181,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4
-              className="text-white/30 text-[11px] font-bold tracking-[0.18em] uppercase mb-5"
+              className="text-white/70 text-[11px] font-bold tracking-[0.18em] uppercase mb-5"
               style={{ fontFamily: "var(--font-syne)" }}
             >
               Contact
@@ -215,20 +225,20 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-5">
-          <p className="text-white/25 text-[13px] text-center md:text-left">
+          <p className="text-white/60 text-[13px] text-center md:text-left">
             © {year} Transocean Marine Surveyors E.A. Ltd. All rights reserved.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-5">
             <Link
               href="/privacy"
-              className="text-white/25 hover:text-white/60 text-[13px] transition-colors duration-200"
+              className="text-white/60 hover:text-white text-[13px] transition-colors duration-200"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-white/25 hover:text-white/60 text-[13px] transition-colors duration-200"
+              className="text-white/60 hover:text-white text-[13px] transition-colors duration-200"
             >
               Terms of Use
             </Link>
