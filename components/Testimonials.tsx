@@ -11,32 +11,7 @@ interface Testimonial {
   rating: number;
 }
 
-// Fallback data — used if no testimonials in Sanity yet
-const fallbackTestimonials = [
-  {
-    _id: "1",
-    name: "Capt. K. Mwangi",
-    role: "Fleet Manager, East Africa Shipping",
-    text: "Transocean handled our vessel's GMDSS survey with exceptional professionalism. Their team was thorough, fast, and ensured we left port fully compliant with zero surprises during inspection.",
-    rating: 5,
-  },
-  {
-    _id: "2",
-    name: "J. Odhiambo",
-    role: "Port Operations, Mombasa",
-    text: "We rely on Transocean for all our EPIRB programming and AIS installation work. Their engineers know these systems inside out, and the turnaround time is always impressive.",
-    rating: 5,
-  },
-  {
-    _id: "3",
-    name: "A. Njoroge",
-    role: "Owner, Coastal Fishing Ltd.",
-    text: "The NEMO-VMS installation they did on our fishing fleet was seamless. The team was knowledgeable about Kenyan fisheries compliance and got us sorted quickly.",
-    rating: 5,
-  },
-];
-
-async function getTestimonials() {
+async function getTestimonials(): Promise<Testimonial[]> {
   try {
     const results = await client.fetch(
       `*[_type == "testimonial" && featured == true] | order(order asc){
@@ -47,10 +22,9 @@ async function getTestimonials() {
         rating
       }`
     );
-    
-    return results?.length > 0 ? results : fallbackTestimonials;
+    return results ?? [];
   } catch {
-    return fallbackTestimonials;
+    return [];
   }
 }
 
@@ -66,6 +40,9 @@ function getInitials(name: string) {
 
 export default async function Testimonials() {
   const testimonials = await getTestimonials();
+
+  // Don't render the section at all if there's nothing real to show
+  if (testimonials.length === 0) return null;
 
   return (
     <section className="py-24" style={{ background: "#0a1628" }}>
@@ -90,7 +67,7 @@ export default async function Testimonials() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t: Testimonial) => (
+          {testimonials.map((t) => (
             <div
               key={t._id}
               className="rounded-lg p-8 flex flex-col transition-all duration-300 hover:border-[#1e90b8]/30"
@@ -99,7 +76,6 @@ export default async function Testimonials() {
                 border: "1px solid rgba(255,255,255,0.08)",
               }}
             >
-              {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[...Array(t.rating ?? 5)].map((_, i) => (
                   <Star key={i} size={14} fill="#c8a84b" color="#c8a84b" />
