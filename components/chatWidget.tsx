@@ -204,7 +204,7 @@ export default function ChatWidget() {
           ...prev,
           {
             role: "assistant",
-            content: "Sorry, I encountered an error. Please call us directly on +254 722 251 598.",
+            content: "Sorry, I encountered an error. Please call us directly on +254 738 036 617.",
             timestamp: new Date(),
           },
         ]);

@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error("Chat API error:", error);
     return NextResponse.json(
-      { reply: "Sorry, I encountered an error. Please call us on +254 722 251 598." },
+      { reply: "Sorry, I encountered an error. Please call us on +254 738 036 617." },
       { status: 500 }
     );
   }

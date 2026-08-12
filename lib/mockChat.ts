@@ -9,7 +9,7 @@ export interface MockResponse {
 }
 
 const CONTACT = {
-  phone: "+254 722 251 598",
+  phone: "+254 738 036 617",
   email: "info@transoceansurveyors.com",
   whatsapp: "https://wa.me/254738036617",
 };

@@ -1,8 +1,8 @@
 export const SITE = {
   name: "Transocean Marine Surveyors",
   tagline: "Marine Electronics & GMDSS Specialists",
-  phone: "+254 722 251 598",   
-  phoneHref: "tel:+254722251598",
+  phone: "+254 738 036 617",   
+  phoneHref: "tel:+254738036617",
   email: "info@transoceansurveyors.com",
   emailHref: "mailto:info@transoceansurveyors.com",
   whatsapp: "https://wa.me/254738036617", 
