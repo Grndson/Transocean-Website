@@ -24,6 +24,7 @@ export default function ContactForm() {
       vessel: formData.get("vessel"),
       service: formData.get("service"),
       message: formData.get("message"),
+      website: formData.get("website"),
     };
 
     try {
@@ -68,6 +69,7 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <input name="website" type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1.5">
                     <label
@@ -80,6 +82,7 @@ export default function ContactForm() {
                       type="text"
                       name="firstName"
                       required
+                      maxLength={100}
                       placeholder="John"
                       className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10"
                       style={{ border: "1px solid #e8edf4", background: "#f4f6f9", color: "#2c3e5a" }}
@@ -96,6 +99,7 @@ export default function ContactForm() {
                       type="text"
                       name="lastName"
                       required
+                      maxLength={100}
                       placeholder="Doe"
                       className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10"
                       style={{ border: "1px solid #e8edf4", background: "#f4f6f9", color: "#2c3e5a" }}
@@ -112,8 +116,9 @@ export default function ContactForm() {
                   </label>
                   <input
                     type="email"
-                    name="email"
-                    required
+                      name="email"
+                      required
+                      maxLength={254}
                     placeholder="john@company.com"
                     className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10"
                     style={{ border: "1px solid #e8edf4", background: "#f4f6f9", color: "#2c3e5a" }}
@@ -129,7 +134,8 @@ export default function ContactForm() {
                   </label>
                   <input
                     type="tel"
-                    name="phone"
+                      name="phone"
+                      maxLength={50}
                     placeholder="+254 700 000 000"
                     className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10"
                     style={{ border: "1px solid #e8edf4", background: "#f4f6f9", color: "#2c3e5a" }}
@@ -145,7 +151,8 @@ export default function ContactForm() {
                   </label>
                   <input
                     type="text"
-                    name="vessel"
+                      name="vessel"
+                      maxLength={150}
                     placeholder="MV Example"
                     className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10"
                     style={{ border: "1px solid #e8edf4", background: "#f4f6f9", color: "#2c3e5a" }}
@@ -182,6 +189,7 @@ export default function ContactForm() {
                   <textarea
                     name="message"
                     rows={5}
+                    maxLength={4000}
                     placeholder="Tell us about your vessel and requirements..."
                     className="px-4 py-3 rounded border text-[14px] outline-none transition-all focus:border-[#1e90b8] focus:ring-2 focus:ring-[#1e90b8]/10 resize-y"
                     style={{ border: "1px solid #e8edf4", background: "#f4f6f9", color: "#2c3e5a", minHeight: 120 }}
@@ -269,8 +277,7 @@ export default function ContactForm() {
                   <div>
                     <strong className="block text-[#0a1628] mb-1">Working Hours</strong>
                     <p className="leading-relaxed">
-                      8:00 AM – 5:00 PM (Monday – Friday)<br />
-                      8:00 AM – 1:00 PM (Saturday)
+                      8:00 AM – 5:00 PM (Monday – Friday)
                     </p>
                   </div>
                 </div>

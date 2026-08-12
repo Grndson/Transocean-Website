@@ -15,19 +15,33 @@ Mombasa, Kenya`,
   linkedin: "https://www.linkedin.com/company/transocean-marine-surveyors-e.a-ltd/",
   facebook: "https://www.facebook.com/TransoceanMarine/",
 
-  stats: [
+ stats: [
     { value: "15+", label: "Years Experience" },
     { value: "100+", label: "Vessels Surveyed" },
-    { value: "3", label: "Class Societies" },
-    { value: "100%", label: "SOLAS Compliant" },
   ],
 
   classificationSocieties: [
     { abbr: "LR", name: "Lloyd's Register" },
     { abbr: "BV", name: "Bureau Veritas" },
-    { abbr: "IRS", name: "International Register of Shipping" },
-    { abbr: "ZMA", name: "ZMA Classification" },
+    { abbr: "IRS", name: "Indian Register of Shipping" },
+    { abbr: "ZMA", name: "Zanzibar Maritime Authority" },
+    { abbr: "ISNB", name: "ISNB" },
+    { abbr: "NK", name: "Class NK" },
+    { abbr: "GL", name: "Germanischer Lloyd" },
   ],
 
-  brands: ["ICOM", "Jotron", "Samyung", "Koden", "Martek", "McMurdo", "ACR"],
+  brands: [
+    "ICOM",
+    "Jotron",
+    "Samyung",
+    "Koden",
+    "Martek",
+    "McMurdo",
+    "ACR",
+    "Sailor",
+    "C-MAP",
+    "Transas",
+    "Jeppesen",
+    "Nauticast",
+  ],
 };
