@@ -16,11 +16,6 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://transoceansurveyors.com",
   },
-  icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
-    shortcut: "/logo.png",
-  },
   verification: {
     google: "iNn_OHtmGHBd9Ekz99bc79X-wL9Oyk0dJrHAWwO0asg",
   },
