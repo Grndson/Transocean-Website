@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Kenya's leading marine electronics and GMDSS specialists. Certified surveys, EPIRB programming, AIS installation, and vessel compliance services across East Africa.",
   keywords:
-    "marine survey Kenya, GMDSS survey Kenya, EPIRB programming Kenya, AIS installation Mombasa, marine electronics East Africa, LRIT testing Kenya",
+    "Transocean, Transocean Marine Surveyors, Transocean Surveyors, marine survey Kenya, GMDSS survey Kenya, EPIRB programming Kenya, AIS installation Mombasa, marine electronics East Africa, LRIT testing Kenya",
   openGraph: {
     title: "Transocean Marine Surveyors | Marine Electronics & GMDSS – Kenya",
     description:
