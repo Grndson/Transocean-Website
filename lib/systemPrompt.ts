@@ -25,9 +25,6 @@ COMPANY OVERVIEW
 - Tagline: ${SITE.tagline}
 - Physical Address: Ruman Plaza, Suite 203, St. Bernard Street, Ganjoni, Mombasa, Kenya
 - Location: ${SITE.locationFull ?? "Mombasa, Kenya"}
-- Experience: ${SITE.stats.find((s) => s.label === "Years Experience")?.value} of experience
-- Vessels Served: ${SITE.stats.find((s) => s.label === "Vessels Surveyed")?.value} vessels surveyed
-- SOLAS Compliant: Yes — 100%
 
 CONTACT INFORMATION
 - Phone: ${SITE.phone}

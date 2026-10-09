@@ -109,7 +109,11 @@ const responses: Array<{ keywords: string[]; reply: string }> = [
   {
     keywords: ["experience", "how long", "years", "established", "history", "about"],
     reply:
-      "Transocean Marine Surveyors EA Limited has over 15 years of experience serving vessels across East African waters. We have surveyed more than 500 vessels and maintain 100% SOLAS compliance across all our services.",
+      "Transocean Marine Surveyors EA Limited is based in Mombasa and serves vessels across East African waters. For more information about our company, please call " +
+      CONTACT.phone +
+      " or email " +
+      CONTACT.email +
+      ".",
   },
   {
     keywords: ["solas", "compliance", "regulation", "imo", "international", "standard"],

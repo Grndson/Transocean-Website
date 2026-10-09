@@ -199,29 +199,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-20" style={{ background: "#0a1628" }}>
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px rounded-lg overflow-hidden" style={{ background: "rgba(255,255,255,0.05)" }}>
-            {SITE.stats.map((s) => (
-              <div
-                key={s.label}
-                className="py-12 text-center transition-all hover:bg-[rgba(30,144,184,0.1)]"
-                style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.05)" }}
-              >
-                <span
-                  className="block text-[clamp(32px,4vw,52px)] font-extrabold leading-none mb-2"
-                  style={{ fontFamily: "var(--font-syne)", color: "#c8a84b" }}
-                >
-                  {s.value}
-                </span>
-                <span className="text-[13px] text-white/45">{s.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <CtaBanner />
     </>
   );

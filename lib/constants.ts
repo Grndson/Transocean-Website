@@ -15,11 +15,6 @@ Mombasa, Kenya`,
   linkedin: "https://www.linkedin.com/company/transocean-marine-surveyors-e.a-ltd/",
   facebook: "https://www.facebook.com/TransoceanMarine/",
 
- stats: [
-    { value: "15+", label: "Years Experience" },
-    { value: "100+", label: "Vessels Surveyed" },
-  ],
-
   classificationSocieties: [
     { abbr: "LR", name: "Lloyd's Register" },
     { abbr: "BV", name: "Bureau Veritas" },
